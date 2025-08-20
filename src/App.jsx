@@ -14,7 +14,7 @@ const Log = async (stack, level, package_name, message) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJNYXBDbGFpbXMiOnsiYXVkIjoiaHR0cDovLzIwLjI0NC41Ni4xNDQvZXZhbHVhdGlvbi1zZXJ2aWNlIiwiZW1haWwiOiIyMjEyMDA5QG5lYy5lZHUuaW4iLCJleHAiOjE3NTU2NjczMzMsImlhdCI6MTc1NTY2NjQzMywiaXNzIjoiQWZmb3JkIE1lZGljYWwgVGVjaG5vbG9naWVzIFByaXZhdGUgTGltaXRlZCIsImp0aSI6ImI0MjgzOGE1LThmZDItNDk0MC1hNDAwLWQyZTE5MjIyYzEyNSIsImxvY2FsZSI6ImVuLUlOIiwibmFtZSI6InNpdmFuIG11dGh1IHN1YnJhbWFuaWFuIHMiLCJzdWIiOiIxM2Y3ZDcwOS1hNTJkLTQ0ZjgtYWE5My1lOGRiODNkZGU0ZDYifSwiZW1haWwiOiIyMjEyMDA5QG5lYy5lZHUuaW4iLCJuYW1lIjoic2l2YW4gbXV0aHUgc3VicmFtYW5pYW4gcyIsInJvbGxObyI6IjIyMTIwMDkiLCJhY2Nlc3NDb2RlIjoieHNaVFRuIiwiY2xpZW50SUQiOiIxM2Y3ZDcwOS1hNTJkLTQ0ZjgtYWE5My1lOGRiODNkZGU0ZDYiLCJjbGllbnRTZWNyZXQiOiJ1cmFBWldLWWdUTkpwckJQIn0.9Ya36dL885GbPTwQQhxC0vo14daYOa0GjTu1SW65IoQ'
+        'Authorization': 'YOUR_BEARER_KEY'
       },
       body: JSON.stringify(logData)
     });
