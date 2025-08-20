@@ -27,7 +27,6 @@ const Log = async (stack, level, package_name, message) => {
   }
 };
 
-// URL validation utility
 const isValidUrl = (string) => {
   try {
     new URL(string);
@@ -37,7 +36,6 @@ const isValidUrl = (string) => {
   }
 };
 
-// Generate random shortcode
 const generateShortcode = () => {
   const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
   let result = '';
@@ -47,7 +45,6 @@ const generateShortcode = () => {
   return result;
 };
 
-// URL Storage Hook
 const useUrlStorage = () => {
   const [urls, setUrls] = useState(() => {
     const stored = localStorage.getItem('shortUrls');
@@ -94,7 +91,6 @@ const useUrlStorage = () => {
   return { urls, saveUrl, incrementClick, getUrlByShortcode };
 };
 
-// Simple routing hook
 const useRouter = () => {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
 
@@ -115,7 +111,6 @@ const useRouter = () => {
   return { currentPath, navigate };
 };
 
-// URL Shortener Component
 const UrlShortener = ({ onNavigate }) => {
   const [urlInputs, setUrlInputs] = useState(Array(5).fill({ url: '', validity: '', customShortcode: '' }));
   const [results, setResults] = useState([]);
@@ -363,7 +358,7 @@ const UrlShortener = ({ onNavigate }) => {
   );
 };
 
-// Statistics Component
+
 const Statistics = ({ onNavigate }) => {
   const { urls } = useUrlStorage();
 
@@ -503,7 +498,6 @@ const Statistics = ({ onNavigate }) => {
   );
 };
 
-// Redirect Component
 const RedirectHandler = ({ shortcode, onNavigate }) => {
   const { getUrlByShortcode, incrementClick } = useUrlStorage();
 
@@ -526,17 +520,15 @@ const RedirectHandler = ({ shortcode, onNavigate }) => {
       return;
     }
 
-    // Record click
     const clickData = {
       timestamp: new Date(),
       source: document.referrer || 'Direct',
-      location: 'Unknown' // In a real app, you'd use geolocation API
+      location: 'Unknown' 
     };
     
     incrementClick(shortcode, clickData);
     Log('frontend', 'info', 'component', `Redirecting ${shortcode} to ${urlData.originalUrl}`);
     
-    // Redirect to original URL
     window.location.href = urlData.originalUrl;
     
   }, [shortcode, getUrlByShortcode, incrementClick, onNavigate]);
@@ -549,7 +541,6 @@ const RedirectHandler = ({ shortcode, onNavigate }) => {
   );
 };
 
-// Main App Component
 const App = () => {
   const { currentPath, navigate } = useRouter();
 
